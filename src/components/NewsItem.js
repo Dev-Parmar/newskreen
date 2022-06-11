@@ -8,7 +8,7 @@ export class NewsItem extends Component {
 
 
 
-            <div className="card my-3" style={{ height: '35rem' }}>
+            <div className="card my-5" style={{ height: '35rem' }}>
                 <span className="position-absolute top-0 start-50 translate-middle badge bg-warning">{source}</span>
                 <img src={!imgURL ? 'https://news.umanitoba.ca/wp-content/uploads/2022/04/UM-TODAY-image.jpg' : imgURL} className="card-img-top" alt="..." style={{ height: '15rem' }} />
                 <div className="card-body" style={{ height: '8rem' }}>
