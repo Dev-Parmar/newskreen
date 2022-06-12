@@ -36,8 +36,8 @@ function News(props) {
 
     const fetchMoreData = async () => {
         setTimeout(async () => {
+            let apiURL = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
             setPage(page + 1)
-            let apiURL = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
             document.title = `NewsKreen - ${props.category.charAt(0).toUpperCase() + props.category.slice(1)} News`
             let news = await fetch(apiURL);
             let parsedNews = await news.json()
@@ -49,7 +49,7 @@ function News(props) {
 
     return (
         <>
-            <h1 className='text-center mt-5'> NewsKreen - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} Headlines</h1>
+            <h1 className='text-center' style={{ marginTop: '90px' }}> NewsKreen - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} Headlines</h1>
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
