@@ -26,7 +26,7 @@ function NewsItem(props) {
                     {props.desc}
                 </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions sx={{ margin: '1em' }}>
                 <Button href={props.newsURL} target='_blank' variant="contained" color="secondary" sx={{ marginRight: 3 }}>Read More</Button>
             </CardActions>
         </Card>
