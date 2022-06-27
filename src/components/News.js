@@ -3,10 +3,13 @@ import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Typography, Grid, Container } from "@mui/material";
+import Masonry from '@mui/lab/Masonry/Masonry';
 
 function News(props) {
 
     const [articles, setArticles] = useState([])
+    // eslint-disable-next-line
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
@@ -14,7 +17,9 @@ function News(props) {
 
     useEffect(() => {
         handleClick()
+        // eslint-disable-next-line
     }, [])
+
 
 
     const handleClick = async () => {
@@ -48,28 +53,34 @@ function News(props) {
 
 
     return (
-        <>
-            <h1 className='text-center' style={{ marginTop: '90px' }}> NewsKreen - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} Headlines</h1>
+        <Container>
+            <Typography variant='h2' gutterBottom sx={{ textAlign: 'center', fontWeight: '400' }}>NewsKreen - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} Headlines</Typography>
+
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
-                hasMore={articles.length !== articles.totalResults}
-                loader={<Spinner />}
+                hasMore={articles.length !== totalResults}
+                loader={articles.length !== totalResults ? <Spinner load={'more'} /> : <Spinner load={'done'} />}
+                endMessage={
+                    <Typography variant='h4' sx={{ textAlign: 'center', marginBottom: 3 }}> -  -  -  -  -  -  - X -  -  -  -  -  -  -
+                    </Typography>
+                }
             >
-                <div className="container">
-                    <div className='row'>
-                        {articles.map((e) => {
-                            return (
-                                <div className='col-md-4' key={e.url}>
-                                    <NewsItem title={e.title} desc={e.description ? e.description.replace(/(<([^>]+)>)/ig, '').slice(0, 80) + '...' : ''} imgURL={e.urlToImage} newsURL={e.url} author={e.author} date={e.publishedAt} source={e.source.name} />
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
+
+                <Masonry columns={{ xs: 1, md: 2, lg: 3 }} spacing={5} >
+                    {articles.map((e) => {
+                        return (
+                            <Grid item key={e.url} sx={{ display: 'flex', justifyContent: 'center' }} >
+                                <NewsItem title={e.title} desc={e.description} imgURL={e.urlToImage} newsURL={e.url} author={e.author} date={e.publishedAt} source={e.source.name} />
+                            </Grid>
+                        )
+                    })}
+
+                </Masonry>
+
             </InfiniteScroll>
 
-        </>
+        </Container >
     )
 
 }
