@@ -1,7 +1,7 @@
 import "./App.css";
 
 import React, { useState } from "react";
-// import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import News from "./components/News";
 import LoadingBar from "react-top-loading-bar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <div>
-        {/* <Navbar /> */}
+        <Navbar />
         <LoadingBar
           color="#9b4196"
           height={3}

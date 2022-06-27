@@ -30,11 +30,9 @@ function News(props) {
         let news = await fetch(apiURL);
         props.progBar(30)
         let parsedNews = await news.json()
-
         setArticles(parsedNews.articles)
         setTotalResults(parsedNews.totalResults)
         setLoading(false)
-
         props.progBar(100)
     }
 
@@ -54,7 +52,7 @@ function News(props) {
 
     return (
         <Container>
-            <Typography variant='h2' gutterBottom sx={{ textAlign: 'center', fontWeight: '400' }}>NewsKreen - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} Headlines</Typography>
+            <Typography variant='h2' gutterBottom sx={{ textAlign: 'center', fontWeight: '400', marginTop: '5rem' }}>NewsKreen - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} Headlines</Typography>
 
             <InfiniteScroll
                 dataLength={articles.length}
