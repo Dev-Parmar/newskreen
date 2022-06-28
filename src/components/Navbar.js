@@ -44,7 +44,7 @@ const Navbar = () => {
 
         <AppBar color='secondary' sx={{ height: '4em' }}>
             <Toolbar>
-                <Typography variant='h4' onClick={() => navigate('/')} sx={{ cursor: 'pointer' }}> NewsKreen
+                <Typography variant='h4' onClick={() => navigate('/')} sx={{ cursor: 'pointer', paddingRight: '3rem' }}> NewsKreen
                 </Typography>
                 <List sx={{ display: 'flex', flexDirection: 'row', padding: 0 }}>
                     {navItems.map(item => (
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </List>
 
             </Toolbar>
-        </AppBar>
+        </AppBar >
 
 
 
