@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import News from "./components/News";
 import LoadingBar from "react-top-loading-bar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { red } from "@mui/material/colors";
 
 export default function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
