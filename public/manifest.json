@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "NewsKreen",
+  "name": "Daily Dose of News",
   "icons": [
     {
       "src": "favicon.ico",
