@@ -2,9 +2,9 @@
 A React App that fetches News from the API and displays the news of selected type on the screen using Material UI enabling users to read latest news on screen.
 
 # Technologies Used
-NodeJs
-React
-MaterialUI
+* NodeJs
+* React
+* MaterialUI
 
 # How to install
 1. Download the code
